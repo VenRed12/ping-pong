@@ -2,6 +2,8 @@ import pygame
 from game.game_engine import GameEngine
 
 # Initialize pygame/Start application
+pygame.mixer.pre_init(44100, -16, 2, 512)
+
 pygame.init()
 
 # Screen dimensions
@@ -31,6 +33,7 @@ def main():
         engine.handle_input()
         engine.update()
         engine.render(SCREEN)
+        engine.check_game_over(SCREEN)  
 
         pygame.display.flip()
         clock.tick(FPS)

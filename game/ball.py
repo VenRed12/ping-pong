@@ -20,6 +20,8 @@ class Ball:
 
         if self.y <= 0 or self.y + self.height >= self.screen_height:
             self.velocity_y *= -1
+            pygame.mixer.Sound("sounds/wall_bounce.wav").play()  # quick fix
+
 
     def check_collision(self, player, ai):
         if self.rect().colliderect(player.rect()) or self.rect().colliderect(ai.rect()):
